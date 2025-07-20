@@ -9,6 +9,11 @@ import { Header } from "@/components/Header";
 import { Sidebar } from "@/components/Sidebar";
 import Login from "./pages/Login";
 import DoctorDashboard from "./pages/DoctorDashboard";
+import DoctorAppointments from "./pages/doctor/DoctorAppointments";
+import DoctorPatients from "./pages/doctor/DoctorPatients";
+import DoctorLabReports from "./pages/doctor/DoctorLabReports";
+import DoctorPrescriptions from "./pages/doctor/DoctorPrescriptions";
+import DoctorSettings from "./pages/doctor/DoctorSettings";
 import PatientDashboard from "./pages/PatientDashboard";
 import LabDashboard from "./pages/LabDashboard";
 import PharmacyDashboard from "./pages/PharmacyDashboard";
@@ -45,6 +50,11 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<Navigate to={`/${user.role}`} replace />} />
             <Route path="/doctor" element={user.role === 'doctor' ? <DoctorDashboard /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/doctor/appointments" element={user.role === 'doctor' ? <DoctorAppointments /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/doctor/patients" element={user.role === 'doctor' ? <DoctorPatients /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/doctor/lab-reports" element={user.role === 'doctor' ? <DoctorLabReports /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/doctor/prescriptions" element={user.role === 'doctor' ? <DoctorPrescriptions /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/doctor/settings" element={user.role === 'doctor' ? <DoctorSettings /> : <Navigate to={`/${user.role}`} />} />
             <Route path="/patient" element={user.role === 'patient' ? <PatientDashboard /> : <Navigate to={`/${user.role}`} />} />
             <Route path="/lab" element={user.role === 'lab' ? <LabDashboard /> : <Navigate to={`/${user.role}`} />} />
             <Route path="/pharmacy" element={user.role === 'pharmacy' ? <PharmacyDashboard /> : <Navigate to={`/${user.role}`} />} />
