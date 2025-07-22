@@ -15,6 +15,10 @@ import DoctorLabReports from "./pages/doctor/DoctorLabReports";
 import DoctorPrescriptions from "./pages/doctor/DoctorPrescriptions";
 import DoctorSettings from "./pages/doctor/DoctorSettings";
 import PatientDashboard from "./pages/PatientDashboard";
+import PatientAppointments from "./pages/patient/PatientAppointments";
+import PatientMedicalRecords from "./pages/patient/PatientMedicalRecords";
+import PatientPrescriptions from "./pages/patient/PatientPrescriptions";
+import PatientProfile from "./pages/patient/PatientProfile";
 import LabDashboard from "./pages/LabDashboard";
 import PharmacyDashboard from "./pages/PharmacyDashboard";
 import NotFound from "./pages/NotFound";
@@ -56,6 +60,10 @@ function AppContent() {
             <Route path="/doctor/prescriptions" element={user.role === 'doctor' ? <DoctorPrescriptions /> : <Navigate to={`/${user.role}`} />} />
             <Route path="/doctor/settings" element={user.role === 'doctor' ? <DoctorSettings /> : <Navigate to={`/${user.role}`} />} />
             <Route path="/patient" element={user.role === 'patient' ? <PatientDashboard /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/patient/appointments" element={user.role === 'patient' ? <PatientAppointments /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/patient/medical-records" element={user.role === 'patient' ? <PatientMedicalRecords /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/patient/prescriptions" element={user.role === 'patient' ? <PatientPrescriptions /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/patient/profile" element={user.role === 'patient' ? <PatientProfile /> : <Navigate to={`/${user.role}`} />} />
             <Route path="/lab" element={user.role === 'lab' ? <LabDashboard /> : <Navigate to={`/${user.role}`} />} />
             <Route path="/pharmacy" element={user.role === 'pharmacy' ? <PharmacyDashboard /> : <Navigate to={`/${user.role}`} />} />
             <Route path="*" element={<NotFound />} />
