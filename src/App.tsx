@@ -20,7 +20,11 @@ import PatientMedicalRecords from "./pages/patient/PatientMedicalRecords";
 import PatientPrescriptions from "./pages/patient/PatientPrescriptions";
 import PatientProfile from "./pages/patient/PatientProfile";
 import LabDashboard from "./pages/LabDashboard";
+import LabAssignedTests from "./pages/lab/LabAssignedTests";
+import LabUploadReports from "./pages/lab/LabUploadReports";
 import PharmacyDashboard from "./pages/PharmacyDashboard";
+import PharmacyPrescriptions from "./pages/pharmacy/PharmacyPrescriptions";
+import PharmacyDispensed from "./pages/pharmacy/PharmacyDispensed";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -65,7 +69,11 @@ function AppContent() {
             <Route path="/patient/prescriptions" element={user.role === 'patient' ? <PatientPrescriptions /> : <Navigate to={`/${user.role}`} />} />
             <Route path="/patient/profile" element={user.role === 'patient' ? <PatientProfile /> : <Navigate to={`/${user.role}`} />} />
             <Route path="/lab" element={user.role === 'lab' ? <LabDashboard /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/lab/tests" element={user.role === 'lab' ? <LabAssignedTests /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/lab/upload" element={user.role === 'lab' ? <LabUploadReports /> : <Navigate to={`/${user.role}`} />} />
             <Route path="/pharmacy" element={user.role === 'pharmacy' ? <PharmacyDashboard /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/pharmacy/prescriptions" element={user.role === 'pharmacy' ? <PharmacyPrescriptions /> : <Navigate to={`/${user.role}`} />} />
+            <Route path="/pharmacy/dispensed" element={user.role === 'pharmacy' ? <PharmacyDispensed /> : <Navigate to={`/${user.role}`} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
